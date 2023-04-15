@@ -1,1 +1,3 @@
 python .\itcubeSite\manage.py runserver
+python .\<APP NAME>\manage.py makemigrations <APP NAME>
+python .\<APP NAME>\manage.py migrate
