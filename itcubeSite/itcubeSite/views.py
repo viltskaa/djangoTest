@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+
+from .forms import ProductName
 from .models import Product
 
 
@@ -30,21 +32,31 @@ def my_name(request, name: str):
     return render(request, 'test.html', data)
 
 
-def product_new(request, name="pomidor"):
-    try:
-        product = Product(name=name)
-        product.save()
-        return HttpResponse(f"<h3>id: {product.id} name: {product.name}</h3>")
-    except Exception as e:
-        return HttpResponse(f"<h1><b>{e}</b></h1>")
+def product_new(request):
+    if request.method == "POST":
+        try:
+            if request.method == "POST":
+                form = ProductName(request.POST)
+                if form.is_valid():
+                    name = form['product_name'].value()
+                    product = Product(name=name)
+                    product.save()
+                    return HttpResponse(f"<h3>id: {product.id} name: {product.name}</h3>")
+        except Exception as e:
+            return HttpResponse(f"<h1><b>Продукт с этим именем уже есть!</b>{e}</h1>")
+    else:
+        form = ProductName()
+        return render(request, "addProduct.html", {'form': form})
 
 
 def product_list(request):
     out = Product.objects.all()
-    outHtml = '<div>'
+    products = []
 
-    for i in out:
-        outHtml += "<h3>" + i.name + "</h3>" + "<br>"
+    for product in out:
+        products.append((
+            product.id,
+            product.name
+        ))
 
-    outHtml += '</div>'
-    return HttpResponse(outHtml)
+    return render(request, "productList.html", {'products': products})

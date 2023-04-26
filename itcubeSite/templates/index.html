@@ -21,58 +21,8 @@
       </div>
     </nav>
     <div class="container-fluid">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Анекодот дня
-                            <span class="badge bg-secondary">New</span>
-                        </h5>
-                        <p class="card-text">
-                            Главный новый бич страны - это высокомотивированные низкоквалифицированные люди.
-                        </p>
-                        <a href="like" class="btn btn-outline-primary position-absolute end-0 bottom-0">Лайк</a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Анекодот месяца</h5>
-                        <p class="card-text">
-                            Весна пришла!<br>
-                            Мороз: - Мне надо уходить.<br>
-                            Снег: - Мне тоже...<br>
-                            Асфальт: - Пацаны, меня подождите!
-                        </p>
-                        <a href="#" class="btn btn-outline-primary position-absolute end-0 bottom-0">Лайк</a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Анекодот года</h5>
-                        <p class="card-text">
-                            Решила проверить, знают ли друзья дату моего рождения, и перенесла её на неделю раньше во всех социальных сетях. Первым меня поздравил муж.
-                        </p>
-                        <a href="#" class="btn btn-outline-primary position-absolute end-0 bottom-0">Лайк</a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Анекодот всего человечества</h5>
-                        <p class="card-text">
-                            По мнению государства, человек на 100% состоит из неоплатного долга.
-                        </p>
-                        <a href="#" class="btn btn-outline-primary position-absolute end-0 bottom-0">Лайк</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        {% block content %}
+        {% endblock content %}
     </div>
 </body>
 </html>
