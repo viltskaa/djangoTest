@@ -3,8 +3,13 @@
 {% block content %}
     <ul class="list-group">
         {% for id, name in products %}
-        <li class="list-group-item">
-            <b>{{ id }}.</b> Имя {{ name }}
+        <li class="list-group-item d-flex justify-content-between">
+            <span><b>{{ id }}</b>. Имя {{ name }}</span>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <a href="/product/edit/{{ id }}" class="btn btn-primary">Изменить</a>
+              <a href="/product/delete/{{ id }}" class="btn btn-danger">Удалить</a>
+                <a href="/product/delete_submit/{{ id }}" class="btn btn-danger">Удалить1</a>
+            </div>
         </li>
         {% endfor %}
     </ul>

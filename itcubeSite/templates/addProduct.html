@@ -1,9 +1,25 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit" class="btn btn-primary">Add</button>
-    </form>
+    <div class="modal fade show" style="display: block;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Создание</h5>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form }}
+                </div>
+                <div class="mb-3 text-danger">
+                    {{ error_message }}
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock content %}

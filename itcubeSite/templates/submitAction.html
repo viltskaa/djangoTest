@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="modal fade show" style="display: block;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Подтвердите действие</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="post">
+            {% csrf_token %}
+                <h5>{{ message }}</h5>
+            <button type="submit" class="btn btn-primary">Да</button>
+            <a href="/" type="cancel" class="btn btn-primary">Нет</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
