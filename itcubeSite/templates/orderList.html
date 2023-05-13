@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "index.html" %}
+
+{% block content %}
+    <ul class="list-group">
+        {% for id, date, customer, products in orders %}
+        <li class="list-group-item d-flex justify-content-between">
+            <span><b>{{ id }}</b>. Дата {{ date }}</span>
+            <span><b>Имя заказчика:</b> {{ customer.name }}</span>
+            <ul class="list-group">
+                {% for id, name in products %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span><b>{{ id }}</b>. Имя {{ name }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

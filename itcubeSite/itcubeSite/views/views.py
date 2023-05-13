@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from .forms import ProductName
-from .models import Product
+from itcubeSite.itcubeSite.forms import ProductName
+from itcubeSite.itcubeSite.models import Product
 
 
 def homePage(request):

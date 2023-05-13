@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .forms import ProductName
-from .models import Product
+from itcubeSite.forms import ProductName
+from itcubeSite.models import Product
 
 
 def edit_product(request, id):
